@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Descubra a sua Personalidade</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f1ebfa;
+  color: #29243a;
+  margin: 0;
+  padding: 20px;
+}
+main {
+  max-width: 750px;
+  margin: 25px auto;
+  padding: 25px;
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 5px 20px #0001;
+}
+h1 { color: #6846a5; text-align: center; }
+.intro { text-align: center; color: #6f687b; }
+fieldset {
+  border: none;
+  border-top: 1px solid #ddd;
+  padding: 18px 0;
+}
+legend { font-weight: bold; font-size: 18px; }
+label { display: block; margin: 12px 0; }
+input[type="text"], input[type="email"], input[type="date"] {
+  width: 95%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+}
+.option {
+  padding: 10px;
+  background: #faf8ff;
+  border-radius: 8px;
+}
+button {
+  background: #6846a5;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 18px;
+  cursor: pointer;
+  margin: 8px 5px 8px 0;
+}
+button:hover { background: #493075; }
+#resultado {
+  display: none;
+  background: #f1ebfa;
+  padding: 18px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+.termos {
+  font-size: 12px;
+  color: #555;
+  border-top: 1px solid #ddd;
+  padding-top: 15px;
+}
+footer {
+  text-align: center;
+  color: #777;
+  font-size: 13px;
+  margin-top: 25px;
+}
+</style>
+</head>
+
+<body>
+<main>
+<h1>Descubra a sua Personalidade</h1>
+<p class="intro">Responda a cinco perguntas e descubra o perfil que mais combina consigo!</p>
+
+<p><strong>Nota:</strong> este teste é recreativo e não constitui um diagnóstico psicológico.</p>
+
+<form id="teste">
+
+<fieldset>
+<legend>Os seus dados</legend>
+<label>Nome:
+<input type="text" id="nome" placeholder="O seu nome">
+</label>
+<label>E-mail (opcional):
+<input type="email" id="email" placeholder="nome@exemplo.com">
+</label>
+<label>Data de nascimento (opcional):
+<input type="date" id="data">
+</label>
+</fieldset>
+
+<fieldset>
+<legend>1. Num dia livre, preferes...</legend>
+<label class="option"><input type="radio" name="q1" value="A" required> Explorar um lugar novo e conhecer pessoas.</label>
+<label class="option"><input type="radio" name="q1" value="B"> Ler, ouvir música ou refletir tranquilamente.</label>
+<label class="option"><input type="radio" name="q1" value="C"> Fazer algo criativo e diferente.</label>
+<label class="option"><input type="radio" name="q1" value="D"> Organizar tarefas e objetivos.</label>
+</fieldset>
+
+<fieldset>
+<legend>2. Quando surge um problema...</legend>
+<label class="option"><input type="radio" name="q2" value="A" required> Converso com alguém.</label>
+<label class="option"><input type="radio" name="q2" value="B"> Penso com calma antes de agir.</label>
+<label class="option"><input type="radio" name="q2" value="C"> Procuro uma solução original.</label>
+<label class="option"><input type="radio" name="q2" value="D"> Divido o problema em passos práticos.</label>
+</fieldset>
+
+<fieldset>
+<legend>3. Num grupo, costumas...</legend>
+<label class="option"><input type="radio" name="q3" value="A" required> Animar a conversa.</label>
+<label class="option"><input type="radio" name="q3" value="B"> Escutar e observar.</label>
+<label class="option"><input type="radio" name="q3" value="C"> Apresentar ideias inesperadas.</label>
+<label class="option"><input type="radio" name="q3" value="D"> Ajudar a organizar um plano.</label>
+</fieldset>
+
+<fieldset>
+<legend>4. O que valorizas num projeto?</legend>
+<label class="option"><input type="radio" name="q4" value="A" required> A colaboração e a amizade.</label>
+<label class="option"><input type="radio" name="q4" value="B"> Aprender e compreender.</label>
+<label class="option"><input type="radio" name="q4" value="C"> Criar e inovar.</label>
+<label class="option"><input type="radio" name="q4" value="D"> Ter objetivos e resultados claros.</label>
+</fieldset>
+
+<fieldset>
+<legend>5. Qual destas frases te representa?</legend>
+<label class="option"><input type="radio" name="q5" value="A" required> Cresço em conjunto com os outros.</label>
+<label class="option"><input type="radio" name="q5" value="B"> Preciso de espaço para pensar.</label>
+<label class="option"><input type="radio" name="q5" value="C"> A imaginação abre novos caminhos.</label>
+<label class="option"><input type="radio" name="q5" value="D"> A consistência transforma planos em resultados.</label>
+</fieldset>
+
+<div class="termos">
+<label>
+<input type="checkbox" id="consentimento" required>
+Li e aceito os Termos de Utilização e a Política de Privacidade.
+</label>
+<details>
+<summary>Consultar os termos completos</summary>
+<p>Este teste utiliza as respostas para apresentar um resultado recreativo. Nesta demonstração, os dados não são enviados para um servidor nem partilhados com terceiros. Numa aplicação real, qualquer recolha ou partilha adicional deve ser explicada de forma transparente, incluindo as finalidades, os destinatários e os direitos dos utilizadores.</p>
+</details>
+</div>
+
+<button type="submit">Ver Resultado</button>
+<button type="reset" onclick="document.getElementById('resultado').style.display='none'">Recomeçar</button>
+</form>
+
+<section id="resultado" aria-live="polite">
+<h2 id="tituloResultado"></h2>
+<p id="textoResultado"></p>
+<p>Este resultado é apenas recreativo e não corresponde a uma avaliação psicológica validada.</p>
+</section>
+
+<footer>Projeto académico · HTML, CSS e JavaScript</footer>
+</main>
+
+<script>
+document.getElementById("teste").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const contagem = {A: 0, B: 0, C: 0, D: 0};
+
+  for (let i = 1; i <= 5; i++) {
+    const resposta = document.querySelector('input[name="q' + i + '"]:checked');
+    if (resposta) contagem[resposta.value]++;
+  }
+
+  const vencedor = Object.keys(contagem).reduce((a, b) =>
+    contagem[a] >= contagem[b] ? a : b
+  );
+
+  const perfis = {
+    A: ["Perfil Social", "Gostas de conviver, partilhar ideias e criar ligações com outras pessoas."],
+    B: ["Perfil Reflexivo", "Valorizas a tranquilidade, a observação e o tempo para pensar."],
+    C: ["Perfil Criativo", "Gostas de experimentar, imaginar possibilidades e encontrar soluções originais."],
+    D: ["Perfil Organizador", "Gostas de definir objetivos, planear tarefas e transformar ideias em resultados."]
+  };
+
+  const nome = document.getElementById("nome").value.trim();
+  document.getElementById("tituloResultado").textContent =
+    nome ? nome + ", o teu resultado é: " + perfis[vencedor][0] : perfis[vencedor][0];
+
+  document.getElementById("textoResultado").textContent = perfis[vencedor][1];
+  document.getElementById("resultado").style.display = "block";
+  document.getElementById("resultado").scrollIntoView({behavior: "smooth"});
+});
+</script>
+</body>
+</html>
